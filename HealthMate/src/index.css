@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HealthMate Design System - Medical & Wellness Theme
+All colors MUST be HSL for proper theming.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Clean medical whites and soft backgrounds */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+
+    /* Card surfaces - Pure and clean */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    /* Popover surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary - Medical blue theme */
+    --primary: 210 95% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 100% 65%;
+
+    /* Secondary - Wellness green */
+    --secondary: 145 65% 49%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted tones - Soft and calming */
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Accent - Caring warm tone */
+    --accent: 25 90% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Health status colors */
+    --success: 145 65% 49%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 85% 55%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* UI elements */
+    --border: 210 20% 90%;
+    --input: 210 20% 95%;
+    --ring: 210 95% 42%;
+
+    --radius: 0.75rem;
+
+    /* HealthMate Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-wellness: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+
+    /* Health-focused shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-wellness: 0 8px 30px hsl(var(--secondary) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* 3️⃣ Custom cursor */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="%23059669" opacity="0.8"/><circle cx="10" cy="10" r="3" fill="white"/></svg>') 10 10, auto;
+    /* 7️⃣ Smooth theme transitions */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  /* 3️⃣ Enhanced cursor interactions */
+  button, a, [role="button"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%232563eb" opacity="0.9"/><path d="M12 6v12M6 12h12" stroke="white" stroke-width="2"/></svg>') 12 12, pointer;
+  }
+
+  /* 5️⃣ Page transition wrapper */
+  .page-transition {
+    @apply animate-fade-in-scale;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* 1️⃣ Loading Components */
+  .loading-spinner {
+    @apply w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spinner;
+  }
+
+  .loading-dots {
+    @apply flex gap-1;
+  }
+  
+  .loading-dots > div {
+    @apply w-2 h-2 bg-primary rounded-full animate-pulse-dots;
+  }
+  
+  .loading-dots > div:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  
+  .loading-dots > div:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .loading-heartbeat {
+    @apply text-red-500 animate-heartbeat;
+  }
+
+  /* 2️⃣ Enhanced Button Styles */
+  .btn-animated {
+    @apply relative overflow-hidden transition-all duration-300 ease-in-out;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
+  }
+
+  .btn-animated::before {
+    content: '';
+    @apply absolute inset-0 bg-white/20 rounded-full scale-0 transition-transform duration-300;
+  }
+
+  .btn-animated:hover::before {
+    @apply scale-100;
+  }
+
+  .btn-glow {
+    @apply animate-glow-pulse hover:animate-button-bounce;
+  }
+
+  /* 4️⃣ Text Animation Components */
+  .text-typing {
+    @apply overflow-hidden whitespace-nowrap border-r-2 border-primary;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+
+  .text-wave {
+    @apply inline-block animate-wave;
+  }
+
+  .text-glow {
+    @apply animate-text-glow;
+  }
+
+  /* 6️⃣ Micro-interaction Components */
+  .emoji-interactive {
+    @apply cursor-pointer transition-all duration-200 hover:animate-emoji-bounce;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-wellness hover:-translate-y-2;
+  }
+
+  .notification-enter {
+    @apply animate-notification-slide;
+  }
+
+  /* 3️⃣ Cursor trail effect (optional) */
+  .cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+    animation: fade-out 0.5s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  /* Animation delay utilities */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  /* Stagger animation utilities */
+  .stagger-1 > * { animation-delay: calc(var(--stagger-delay, 0.1s) * 1); }
+  .stagger-2 > * { animation-delay: calc(var(--stagger-delay, 0.1s) * 2); }
+  .stagger-3 > * { animation-delay: calc(var(--stagger-delay, 0.1s) * 3); }
+
+  /* Interactive states */
+  .interactive {
+    @apply transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .glassmorphism {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+}
